@@ -54,7 +54,7 @@ namespace Iterators
             {
                 try
                 {
-                    return _items[position];
+                    return _items[_position];
                 }
                 catch (IndexOutOfRangeException)
                 {

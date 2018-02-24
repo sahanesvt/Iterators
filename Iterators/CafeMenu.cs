@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class CafeMenu
+    public class CafeMenu:IEnumerable
     {
         private Dictionary<string, MenuItem> _menuItems = new Dictionary<string, MenuItem>();
 
@@ -23,6 +24,16 @@ namespace Iterators
         {
             MenuItem menuitem = new MenuItem(name, description, vegetarian, price);
             _menuItems[menuitem.getName()] = menuitem;
+        }
+
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
+        }
+        public CafeMenuIterator GetEnumerator()
+        {
+            return new CafeMenuIterator(_menuItems);
         }
 
     }

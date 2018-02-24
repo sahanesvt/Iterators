@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,17 @@ namespace Iterators
             {
                 MenuItem menuItem = (MenuItem) iterator.next();
                 Console.WriteLine(menuItem.getName()+" ");
+                Console.WriteLine(menuItem.getPrice() + " ");
+                Console.WriteLine(menuItem.getDescription());
+            }
+        }
+
+        private void _printMenu(IEnumerable iterator)
+        {
+            foreach(IEnumerable menuItem in iterator)
+            {
+                //MenuItem menuItem = 
+                Console.WriteLine((MenuItem) menuItem.getName() + " ");
                 Console.WriteLine(menuItem.getPrice() + " ");
                 Console.WriteLine(menuItem.getDescription());
             }

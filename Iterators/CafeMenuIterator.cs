@@ -7,27 +7,14 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class DinerMenuIterator:iIterator, IEnumerator
+    public class CafeMenuIterator:IEnumerator
     {
-        private MenuItem[] _items;
-        private int position = 0;
+        private Dictionary<string, MenuItem> _items = new Dictionary<string, MenuItem>();
         private int _position = -1;
 
-        public DinerMenuIterator(MenuItem[] items)
+        public CafeMenuIterator(Dictionary<string,MenuItem> items)
         {
             _items = items;
-        }
-
-        public object next()
-        {
-            MenuItem menuItem = _items[position];
-            position++;
-            return menuItem;
-        }
-
-        public bool hasNext()
-        {
-            return position >= _items.Length || _items[position] == null ? false : true;
         }
 
 
@@ -54,7 +41,7 @@ namespace Iterators
             {
                 try
                 {
-                    return _items[_position];
+                    return _items.ElementAt(_position).Value;
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -62,5 +49,7 @@ namespace Iterators
                 }
             }
         }
+
+
     }
 }
