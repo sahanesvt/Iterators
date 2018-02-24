@@ -8,10 +8,10 @@ namespace Iterators
 {
     public class Waitress
     {
-        private PancakeHouseMenu _pancakeHouseMenu;
-        private DinerMenu _dinerMenu;
+        private Menu _pancakeHouseMenu;
+        private Menu _dinerMenu;
 
-        public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu)
+        public Waitress(Menu pancakeHouseMenu, Menu dinerMenu)
         {
             _pancakeHouseMenu = pancakeHouseMenu;
             _dinerMenu = dinerMenu; 
