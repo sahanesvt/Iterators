@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class CafeMenu:IEnumerable
+    public class CafeMenu:Menu
     {
         private Dictionary<string, MenuItem> _menuItems = new Dictionary<string, MenuItem>();
 
@@ -26,15 +26,9 @@ namespace Iterators
             _menuItems[menuitem.getName()] = menuitem;
         }
 
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return (IEnumerator)GetEnumerator();
-        }
-        public CafeMenuIterator GetEnumerator()
+        public iIterator createIterator()
         {
             return new CafeMenuIterator(_menuItems);
         }
-
     }
 }

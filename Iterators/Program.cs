@@ -41,8 +41,9 @@ namespace Iterators
         {
             PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
             DinerMenu dinerMenu = new DinerMenu();
+            CafeMenu cafeMenu = new CafeMenu();
 
-            Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu);
+            Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
 
             waitress.printMenu();
         }
@@ -50,9 +51,9 @@ namespace Iterators
         static void Main(string[] args)
         {
             //testMenuItems_1();
-            //testWaitress();
+            testWaitress();
 
-            Person[] peopleArray = new Person[3]
+            /*Person[] peopleArray = new Person[3]
                 {
                     new Person("John", "Smith"),
                     new Person("Jim", "Johnson"),
@@ -61,8 +62,15 @@ namespace Iterators
 
             People peopleList = new People(peopleArray);
             foreach (Person p in peopleList)
-                Console.WriteLine(p.firstName + " " + p.lastName);
+                Console.WriteLine(p.firstName + " " + p.lastName);*/
+
+
+
         }
+
+
+
+
 
 
 
@@ -154,5 +162,7 @@ namespace Iterators
                 }
             }
         }
+
+
     }
 }

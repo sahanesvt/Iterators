@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class DinerMenuIterator:iIterator, IEnumerator
+    public class DinerMenuIterator:iIterator
     {
         private MenuItem[] _items;
         private int position = 0;
-        private int _position = -1;
-
+        
         public DinerMenuIterator(MenuItem[] items)
         {
             _items = items;
@@ -32,35 +31,5 @@ namespace Iterators
 
 
 
-        public bool MoveNext()
-        {
-            _position++;
-            return (_position < _items.Count());
-        }
-        public void Reset()
-        {
-            _position = -1;
-        }
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
-        public MenuItem Current
-        {
-            get
-            {
-                try
-                {
-                    return _items[_position];
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    throw new InvalidOperationException();
-                }
-            }
-        }
     }
 }

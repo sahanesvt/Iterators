@@ -7,48 +7,28 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class CafeMenuIterator:IEnumerator
+    public class CafeMenuIterator:iIterator
     {
         private Dictionary<string, MenuItem> _items = new Dictionary<string, MenuItem>();
-        private int _position = -1;
+        private int position = 0;
 
         public CafeMenuIterator(Dictionary<string,MenuItem> items)
         {
             _items = items;
         }
 
+        public object next()
+        {
+            MenuItem menuItem = _items.ElementAt(position).Value;
+            position++;
+            return menuItem;
+        }
 
+        public bool hasNext()
+        {
+            return position >= _items.Count || _items.ElementAt(position).Value == null ? false : true;
+        }
 
-        public bool MoveNext()
-        {
-            _position++;
-            return (_position < _items.Count());
-        }
-        public void Reset()
-        {
-            _position = -1;
-        }
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
-        public MenuItem Current
-        {
-            get
-            {
-                try
-                {
-                    return _items.ElementAt(_position).Value;
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    throw new InvalidOperationException();
-                }
-            }
-        }
 
 
     }
