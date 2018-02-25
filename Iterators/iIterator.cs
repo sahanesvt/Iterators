@@ -11,4 +11,5 @@ namespace Iterators
         bool hasNext();
         object next();
     }
+
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class DinerMenu:Menu, IEnumerable
+    public class DinerMenu:Menu
     {
         private static readonly int MAX_ITEMS = 6;
         private int _numberOfItems = 0;
@@ -54,15 +54,6 @@ namespace Iterators
             return new DinerMenuIterator(_menuItems);
         }
 
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return (IEnumerator)GetEnumerator();
-        }
-        public DinerMenuIterator GetEnumerator()
-        {
-            return new DinerMenuIterator(_menuItems);
-        }
 
     }
 }

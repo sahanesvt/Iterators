@@ -39,11 +39,19 @@ namespace Iterators
 
         static void testWaitress()
         {
-            PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
-            DinerMenu dinerMenu = new DinerMenu();
-            CafeMenu cafeMenu = new CafeMenu();
 
-            Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
+            //PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+            //DinerMenu dinerMenu = new DinerMenu();
+            //CafeMenu cafeMenu = new CafeMenu();
+            //Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
+
+            List<Menu> menus = new List<Menu>();
+            menus.Add(new PancakeHouseMenu());
+            menus.Add(new DinerMenu());
+            menus.Add(new CafeMenu());
+
+
+            Waitress waitress = new Waitress(menus);
 
             waitress.printMenu();
         }
