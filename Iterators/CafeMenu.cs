@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class CafeMenu:Menu
+    public class CafeMenu:IMenu
     {
         private Dictionary<string, MenuItem> _menuItems = new Dictionary<string, MenuItem>();
 

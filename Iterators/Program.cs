@@ -40,19 +40,52 @@ namespace Iterators
         static void testWaitress()
         {
 
-            //PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
-            //DinerMenu dinerMenu = new DinerMenu();
-            //CafeMenu cafeMenu = new CafeMenu();
+            PancakeHouseMenu oldPancakeHouseMenu = new PancakeHouseMenu();
+            iIterator oldPancakeHouseMenuIterator = oldPancakeHouseMenu.createIterator();
+            DinerMenu oldDinerMenu = new DinerMenu();
+            iIterator oldDinerMenuIterator = oldDinerMenu.createIterator();
+            CafeMenu oldCafeMenu = new CafeMenu();
+            iIterator oldCafeMenuIterator = oldCafeMenu.createIterator();
             //Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
 
-            List<Menu> menus = new List<Menu>();
+            /*List<IMenu> menus = new List<IMenu>();
             menus.Add(new PancakeHouseMenu());
             menus.Add(new DinerMenu());
             menus.Add(new CafeMenu());
 
 
             Waitress waitress = new Waitress(menus);
+            */
 
+            MenuComponent pancakeHouseMenu = new Menu("PANCAKE HOUSE MENU", "Breakfast");
+            MenuComponent dinerMenu = new Menu(" DINER MENU", "Lunch");
+            MenuComponent cafeMenu = new Menu("CAFE MENU", "Dinner");
+            MenuComponent dessertMenu = new Menu("DESSERT MENU", "Dessert of course!");
+            MenuComponent allMenus = new Menu("ALL MENUS", "All menus combined");
+
+            allMenus.add(pancakeHouseMenu);
+            allMenus.add(dinerMenu);
+            allMenus.add(cafeMenu);
+
+            while (oldPancakeHouseMenuIterator.hasNext())
+            {
+                pancakeHouseMenu.add((MenuItem)oldPancakeHouseMenuIterator.next());
+            }
+
+            while (oldDinerMenuIterator.hasNext())
+            {
+                dinerMenu.add((MenuItem)oldDinerMenuIterator.next());
+            }
+
+            while (oldCafeMenuIterator.hasNext())
+            {
+                cafeMenu.add((MenuItem)oldCafeMenuIterator.next());
+            }
+
+            dinerMenu.add(dessertMenu);
+            dessertMenu.add(new MenuItem("Apple Pie", "Apple pie with a flakey crust, topped with vanilla icecream", true, 1.59));
+
+            Waitress waitress = new Waitress(allMenus);
             waitress.printMenu();
         }
 

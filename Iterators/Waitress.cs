@@ -9,20 +9,32 @@ namespace Iterators
 {
     public class Waitress
     {
-        private List<Menu> _menus;
+        private MenuComponent _allMenus;
 
-        public Waitress (List<Menu> menus)
+        public Waitress(MenuComponent allMenus)
+        {
+            _allMenus = allMenus;
+        }
+
+        public void printMenu()
+        {
+            _allMenus.print();
+        }
+
+        /*private List<IMenu> _menus;
+
+        public Waitress (List<IMenu> menus)
         {
             _menus = menus;
         }
 
         public void printMenu()
         {
-            foreach(Menu menu in _menus)
+            foreach(IMenu menu in _menus)
             {
                 printMenu(menu.createIterator());
             }
-        }
+        }*/
 
         /*
         private Menu _pancakeHouseMenu;
@@ -52,7 +64,7 @@ namespace Iterators
             printMenu(cafeIterator);
         }
         */
-        private void printMenu(iIterator iterator)
+        /*private void printMenu(iIterator iterator)
         {
             while (iterator.hasNext())
             {
@@ -61,7 +73,7 @@ namespace Iterators
                 Console.WriteLine(menuItem.getPrice() + " -- ");
                 Console.WriteLine(menuItem.getDescription());
             }
-        }
+        }*/
         
     }
 }

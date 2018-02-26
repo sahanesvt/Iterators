@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class MenuItem
+    public class MenuItem : MenuComponent
     {
         private string _name;
         private string _description;
@@ -21,25 +21,40 @@ namespace Iterators
             _price = price;
         }
 
-        public string getName()
+        public override string getName()
         {
             return _name;
         }
 
-        public string getDescription()
+        public override string getDescription()
         {
             return _description;
         }
 
-        public double getPrice()
+        public override double getPrice()
         {
             return _price;
         }
 
-        public bool isVegetarian()
+        public override bool isVegetarian()
         {
             return _vegetarian;
         }
 
+        public override void print()
+        {
+            Console.WriteLine("  " + getName());
+            if (isVegetarian())
+            {
+                Console.WriteLine("(v)");
+            }
+            Console.WriteLine(", " + getPrice());
+            Console.WriteLine("    -- " + getDescription());
+        }
+
+        public override iIterator createIterator()
+        {
+            return new NullIterator();
+        }
     }
 }

@@ -48,8 +48,12 @@
     <Compile Include="DinerMenu.cs" />
     <Compile Include="DinerMenuIterator.cs" />
     <Compile Include="iIterator.cs" />
+    <Compile Include="IMenu.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="MenuComponent.cs" />
     <Compile Include="MenuItem.cs" />
+    <Compile Include="MenuIterator.cs" />
+    <Compile Include="NullIterator.cs" />
     <Compile Include="PancakeHouseIterator.cs" />
     <Compile Include="PancakeHouseMenu.cs" />
     <Compile Include="Program.cs" />

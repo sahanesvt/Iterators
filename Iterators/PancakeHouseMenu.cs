@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace Iterators
 {
-    public class PancakeHouseMenu:Menu
+    public class PancakeHouseMenu:IMenu
     {
         private List<MenuItem> _menuItems = new List<MenuItem>();
 

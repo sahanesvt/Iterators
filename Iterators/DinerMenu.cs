@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class DinerMenu:Menu
+    public class DinerMenu:IMenu
     {
         private static readonly int MAX_ITEMS = 6;
         private int _numberOfItems = 0;
