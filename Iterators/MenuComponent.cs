@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public abstract class MenuComponent:iIterator,IMenu
+    public abstract class MenuComponent //:iIterator,IMenu
     {
         public virtual void add(MenuComponent menuComponent)
         {
@@ -48,7 +48,7 @@ namespace Iterators
             throw new NotSupportedException();
         }
 
-        public virtual bool hasNext()
+        /*public virtual bool hasNext()
         {
             throw new NotImplementedException();
         }
@@ -61,6 +61,6 @@ namespace Iterators
         public virtual iIterator createIterator()
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }

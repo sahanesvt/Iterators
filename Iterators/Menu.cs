@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class Menu: MenuComponent, IMenu
+    public class Menu: MenuComponent //, IMenu
     {
         private List<MenuComponent> _menuComponents = new List<MenuComponent>();
         private string _name;
@@ -45,17 +45,21 @@ namespace Iterators
 
         public override void print()
         {
-            Console.WriteLine("\n" + getName());
-            Console.WriteLine(", " + getDescription());
+            Console.Write("\n" + _name);
+            Console.WriteLine(", " + _description);
             Console.WriteLine("---------------------");
 
             foreach (MenuComponent menuComponent in _menuComponents)
             {
-                print(menuComponent.createIterator());
+                menuComponent.print();
+                /*Console.Write("\n" + menuComponent.getName());
+                Console.WriteLine(", " + menuComponent.getDescription());
+                Console.WriteLine("---------------------");*/
+                //print(menuComponent.createIterator());
             }
         }
 
-        private void print(iIterator iterator)
+        /*private void print(iIterator iterator)
         {
             while (iterator.hasNext())
             {
@@ -65,9 +69,9 @@ namespace Iterators
             }
         }
 
-        public override iIterator createIterator()
+        public override iIterator createIterator()  //Not needed??
         {
             return new MenuIterator(_menuComponents);
-        }
+        }*/
     }
 }

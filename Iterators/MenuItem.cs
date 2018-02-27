@@ -43,18 +43,18 @@ namespace Iterators
 
         public override void print()
         {
-            Console.WriteLine("  " + getName());
+            Console.Write("  " + _name);
             if (isVegetarian())
             {
-                Console.WriteLine("(v)");
+                Console.Write("(v)");
             }
-            Console.WriteLine(", " + getPrice());
-            Console.WriteLine("    -- " + getDescription());
+            Console.WriteLine(", " + _price);
+            Console.WriteLine("    -- " + _description);
         }
 
-        public override iIterator createIterator()
+        /*public override iIterator createIterator() //Not needed??
         {
             return new NullIterator();
-        }
+        }*/
     }
 }
