@@ -8,12 +8,17 @@ namespace Iterators
 {
     public class MenuIterator: iIterator
     {
-        private List<MenuComponent> _menuComponents;
+        private List<MenuComponent> _menuComponents= new List<MenuComponent>();
         private int position = 0;
 
         public MenuIterator(List<MenuComponent> menuComponents)
         {
             _menuComponents = menuComponents;
+        }
+
+        public MenuIterator(MenuComponent menuComponent)
+        {
+            _menuComponents.Add(menuComponent);
         }
 
         public object next()
