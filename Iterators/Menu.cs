@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class Menu: MenuComponent , IMenu
+    public class Menu: MenuComponent , IMenu, IEnumerable
     {
         private List<MenuComponent> _menuComponents = new List<MenuComponent>();
         private string _name;
@@ -38,6 +39,19 @@ namespace Iterators
             return _name;
         }
 
+        public int Count()
+        {
+            return _menuComponents.Count();
+        }
+
+        public MenuComponent this[int index]
+        {
+            get
+            {
+                return _menuComponents[index];
+            }
+        }
+
         public override string getDescription()
         {
             return _description;
@@ -52,10 +66,6 @@ namespace Iterators
             foreach (MenuComponent menuComponent in _menuComponents)
             {
                 menuComponent.print();
-                /*Console.Write("\n" + menuComponent.getName());
-                Console.WriteLine(", " + menuComponent.getDescription());
-                Console.WriteLine("---------------------");*/
-                //print(menuComponent.createIterator());
             }
         }
 
@@ -72,6 +82,11 @@ namespace Iterators
         public override iIterator createIterator()  //Not needed??
         {
             return new MenuIterator(_menuComponents);
+        }
+
+        public override IEnumerator GetEnumerator()
+        {
+            return new MenuEnumerator(this);
         }
     }
 }

@@ -19,6 +19,10 @@ namespace Iterators
         public void printMenu()
         {
             _allMenus.print();
+            foreach(Menu menu in _allMenus)
+            {
+                menu.print();
+            }
         }
 
         /*private List<IMenu> _menus;

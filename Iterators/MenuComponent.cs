@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public abstract class MenuComponent:iIterator,IMenu
+    public abstract class MenuComponent:iIterator,IMenu, IEnumerable
     {
         public virtual void add(MenuComponent menuComponent)
         {
@@ -59,6 +60,11 @@ namespace Iterators
         }
 
         public virtual iIterator createIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
         }

@@ -93,8 +93,8 @@ namespace Iterators
         static void Main(string[] args)
         {
             //testMenuItems_1();
-            //testWaitress();
-            testEnumerable();
+            testWaitress();
+            //testEnumerable();
             /*Person[] peopleArray = new Person[3]
                 {
                     new Person("John", "Smith"),
