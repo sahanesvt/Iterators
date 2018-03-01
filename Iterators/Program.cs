@@ -93,8 +93,8 @@ namespace Iterators
         static void Main(string[] args)
         {
             //testMenuItems_1();
-            testWaitress();
-
+            //testWaitress();
+            testEnumerable();
             /*Person[] peopleArray = new Person[3]
                 {
                     new Person("John", "Smith"),
@@ -113,7 +113,22 @@ namespace Iterators
 
 
 
+        static void testEnumerable()
+        {
+            List<int> ints = new List<int>();
+            ints.Add(2);
+            ints.Add(4);
+            ints.Add(6);
+            ints.Add(9);
+            ints.Add(7);
+            ints.Add(5);
 
+            EnumerableTest test = new EnumerableTest(ints);
+            foreach(int integer in test)
+            {
+                Console.WriteLine(integer);
+            }
+        }
 
 
         public class Person
@@ -131,6 +146,7 @@ namespace Iterators
         // Collection of Person objects. This class
         // implements IEnumerable so that it can be used
         // with ForEach syntax.
+
         public class People : IEnumerable
         {
             private Person[] _people;
