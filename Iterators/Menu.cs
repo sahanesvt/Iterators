@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class Menu: MenuComponent , IMenu, IEnumerable
+    public class Menu: MenuComponent, IEnumerable//, IMenu
     {
         private List<MenuComponent> _menuComponents = new List<MenuComponent>();
         private string _name;
@@ -69,7 +69,7 @@ namespace Iterators
             }
         }
 
-        private void print(iIterator iterator)
+        /*private void print(iIterator iterator)
         {
             while (iterator.hasNext())
             {
@@ -77,12 +77,12 @@ namespace Iterators
                 menuComponent.print();
 
             }
-        }
+        }*/
 
-        public override iIterator createIterator()  //Not needed??
+        /*public override iIterator createIterator()  //Not needed??
         {
             return new MenuIterator(_menuComponents);
-        }
+        }*/
 
         public override IEnumerator GetEnumerator()
         {

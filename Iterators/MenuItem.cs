@@ -52,9 +52,9 @@ namespace Iterators
             Console.WriteLine("    -- " + _description);
         }
 
-        public override iIterator createIterator() //Not needed??
+        /*public override iIterator createIterator() //Not needed??
         {
             return new MenuIterator(this);
-        }
+        }*/
     }
 }

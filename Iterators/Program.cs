@@ -41,11 +41,11 @@ namespace Iterators
         {
 
             PancakeHouseMenu oldPancakeHouseMenu = new PancakeHouseMenu();
-            iIterator oldPancakeHouseMenuIterator = oldPancakeHouseMenu.createIterator();
+            //iIterator oldPancakeHouseMenuIterator = oldPancakeHouseMenu.createIterator();
             DinerMenu oldDinerMenu = new DinerMenu();
-            iIterator oldDinerMenuIterator = oldDinerMenu.createIterator();
+            //iIterator oldDinerMenuIterator = oldDinerMenu.createIterator();
             CafeMenu oldCafeMenu = new CafeMenu();
-            iIterator oldCafeMenuIterator = oldCafeMenu.createIterator();
+            //iIterator oldCafeMenuIterator = oldCafeMenu.createIterator();
             //Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
 
             /*List<IMenu> menus = new List<IMenu>();
@@ -67,7 +67,20 @@ namespace Iterators
             allMenus.add(dinerMenu);
             allMenus.add(cafeMenu);
 
-            while (oldPancakeHouseMenuIterator.hasNext())
+            foreach(MenuComponent component in oldPancakeHouseMenu.EnumerateFrom(2))
+            {
+                pancakeHouseMenu.add(component);
+            }
+            foreach (MenuComponent component in oldDinerMenu)
+            {
+                dinerMenu.add(component);
+            }
+            foreach (MenuComponent component in oldCafeMenu)
+            {
+                cafeMenu.add(component);
+            }
+
+            /*while (oldPancakeHouseMenuIterator.hasNext())
             {
                 pancakeHouseMenu.add((MenuItem)oldPancakeHouseMenuIterator.next());
             }
@@ -80,7 +93,7 @@ namespace Iterators
             while (oldCafeMenuIterator.hasNext())
             {
                 cafeMenu.add((MenuItem)oldCafeMenuIterator.next());
-            }
+            }*/
 
             dinerMenu.add(dessertMenu);
             dessertMenu.add(new MenuItem("Apple Pie", "Apple pie with a flakey crust, topped with vanilla icecream", true, 1.59));
@@ -90,10 +103,19 @@ namespace Iterators
             waitress.printMenu();
         }
 
+        static void testEnumerateFrom()
+        {
+            PancakeHouseMenu oldPancakeHouseMenu = new PancakeHouseMenu();
+            foreach (MenuComponent component in oldPancakeHouseMenu.EnumerateFrom(2))
+            {
+                component.print();
+            }
+        }
+
         static void Main(string[] args)
         {
             //testMenuItems_1();
-            testWaitress();
+            //testWaitress();
             //testEnumerable();
             /*Person[] peopleArray = new Person[3]
                 {
@@ -106,7 +128,7 @@ namespace Iterators
             foreach (Person p in peopleList)
                 Console.WriteLine(p.firstName + " " + p.lastName);*/
 
-
+            testEnumerateFrom();
 
         }
 

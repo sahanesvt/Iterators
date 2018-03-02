@@ -8,6 +8,6 @@ namespace Iterators
 {
     public interface IMenu
     {
-        iIterator createIterator();
+        //iIterator createIterator();
     }
 }

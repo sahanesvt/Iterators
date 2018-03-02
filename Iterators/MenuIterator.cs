@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class MenuIterator: iIterator
+    public class MenuIterator//: iIterator  CLASS NOT USED
     {
         private List<MenuComponent> _menuComponents= new List<MenuComponent>();
         private int position = 0;

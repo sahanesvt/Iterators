@@ -7,17 +7,19 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class CafeMenuIterator:iIterator
+    public class CafeMenuIterator:IEnumerator//, iIterator
     {
         private Dictionary<string, MenuItem> _items = new Dictionary<string, MenuItem>();
-        private int position = 0;
+        private int position = -1;
+
+       
 
         public CafeMenuIterator(Dictionary<string,MenuItem> items)
         {
             _items = items;
         }
 
-        public object next()
+        /*public object next()
         {
             MenuItem menuItem = _items.ElementAt(position).Value;
             position++;
@@ -27,9 +29,41 @@ namespace Iterators
         public bool hasNext()
         {
             return position >= _items.Count || _items.ElementAt(position).Value == null ? false : true;
+        }*/
+
+        public object Current
+        {
+            get
+            {
+                return _current;
+            }
         }
 
+        public bool MoveNext()
+        {
+            position++;
+            return position < _items.Count();
+        }
 
+        public void Reset()
+        {
+            position = -1;
+        }
 
+        private MenuItem _current
+        {
+            get
+            {
+                try
+                {
+                    return _items.ElementAt(position).Value;
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }
     }
+    
 }

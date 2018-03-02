@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public class NullIterator : iIterator
+    public class NullIterator //: iIterator  CLASS NOT USED
     {
         public bool hasNext()
         {

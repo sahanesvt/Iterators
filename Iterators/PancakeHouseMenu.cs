@@ -7,9 +7,10 @@ using System.Collections;
 
 namespace Iterators
 {
-    public class PancakeHouseMenu:IMenu
+    public class PancakeHouseMenu: IEnumerable
     {
         private List<MenuItem> _menuItems = new List<MenuItem>();
+        private int _startEnumerator = -1;
 
         public PancakeHouseMenu()
         {
@@ -33,13 +34,16 @@ namespace Iterators
             return _menuItems;
         }
 
-        public iIterator createIterator()
+        public IEnumerator GetEnumerator()
         {
-            return new PancakeHouseIterator(_menuItems);
+            return new PancakeHouseIterator(_menuItems, _startEnumerator);
         }
 
-
-
+        public PancakeHouseMenu EnumerateFrom(int start)
+        {
+            _startEnumerator = start;
+            return this;
+        }
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    public interface iIterator
+    public interface iIterator // INTERFACE NOT USED
     {
         bool hasNext();
         object next();
